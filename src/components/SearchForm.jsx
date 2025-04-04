@@ -6,6 +6,7 @@ function SearchForm({ setCity, setWeatherData, setForecastData }) {
   const [input, setInput] = useState('');
   const navigate = useNavigate();
   const API_KEY = '7a790157fdc0f0770cb4dfd11af5f843';
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (!input) return;
@@ -43,7 +44,7 @@ function SearchForm({ setCity, setWeatherData, setForecastData }) {
       />
       <button
         type="submit"
-        className="bg-yellow-500 text-gray-900 p-3 rounded-lg font-semibold hover:bg-yellow-400 transition-colors"
+        className="cursor-pointer bg-gradient-to-r from-yellow-400/50 to-blue-500/50 backdrop-blur-md p-3 rounded-lg border border-white/30 text-white font-bold shadow-lg hover:scale-105 hover:shadow-xl hover:border-yellow-400/50 transition-all duration-300"
       >
         Get Forecast
       </button>
