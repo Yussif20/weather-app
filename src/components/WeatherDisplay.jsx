@@ -1,7 +1,7 @@
 import React from 'react';
 import sunIcon from '../assets/sun.png';
-import cloudyIcon from '../assets/cloudy.png'; // Sun with clouds
-import cloudsIcon from '../assets/clouds.png'; // Just clouds (assuming this was the intended second cloudy.png)
+import cloudyIcon from '../assets/cloudy.png';
+import cloudsIcon from '../assets/clouds.png';
 import rainIcon from '../assets/rain.png';
 
 function WeatherDisplay({ data, type }) {
@@ -31,7 +31,7 @@ function WeatherDisplay({ data, type }) {
   if (type === 'current') {
     const iconSrc = getWeatherIcon(data.weather[0].description);
     return (
-      <div className="bg-white bg-opacity-10 backdrop-blur-md p-6 rounded-xl border border-white border-opacity-20 shadow-lg text-gray-800">
+      <div className="bg-gradient-to-br from-white/20 to-blue-500/20 backdrop-blur-lg p-6 rounded-2xl border border-white/30 shadow-xl text-white hover:shadow-2xl transition-all duration-300">
         <h2 className="text-3xl font-bold">{data.name || 'Unknown City'}</h2>
         <div className="flex items-center justify-center my-4">
           <img
@@ -67,7 +67,7 @@ function WeatherDisplay({ data, type }) {
           return (
             <div
               key={day.dt}
-              className="bg-white bg-opacity-10 backdrop-blur-md p-4 rounded-xl border border-white border-opacity-20 shadow-lg text-center text-gray-800"
+              className="bg-gradient-to-br from-white/20 to-blue-500/20 backdrop-blur-lg p-4 rounded-2xl border border-white/30 shadow-xl text-center text-white hover:shadow-2xl transition-all duration-300"
             >
               <p className="font-medium">
                 {new Date(day.dt * 1000).toLocaleDateString('en-US', {

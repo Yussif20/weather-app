@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
 function SearchForm({ setCity, setWeatherData, setForecastData }) {
   const [input, setInput] = useState('');
-  const API_KEY = '7a790157fdc0f0770cb4dfd11af5f843'; // You can remove this if you prefer to pass it as a prop
-
+  const navigate = useNavigate();
+  const API_KEY = '7a790157fdc0f0770cb4dfd11af5f843';
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (!input) return;
@@ -22,6 +23,8 @@ function SearchForm({ setCity, setWeatherData, setForecastData }) {
 
       setCity(input);
       setInput('');
+
+      navigate('/weather');
     } catch (error) {
       console.error('Error fetching weather data:', error);
       setWeatherData(null);
@@ -36,7 +39,7 @@ function SearchForm({ setCity, setWeatherData, setForecastData }) {
         value={input}
         onChange={(e) => setInput(e.target.value)}
         placeholder="Enter city name"
-        className="p-3 w-full bg-white bg-opacity-20 border border-white border-opacity-30 rounded-lg text-white placeholder-white placeholder-opacity-70 focus:outline-none focus:ring-2 focus:ring-yellow-400 backdrop-blur-sm"
+        className="p-3 w-full bg-white bg-opacity-20 border border-white border-opacity-30 rounded-lg text-gray-800 placeholder-white placeholder-opacity-70 focus:outline-none focus:ring-2 focus:ring-yellow-400 backdrop-blur-sm"
       />
       <button
         type="submit"

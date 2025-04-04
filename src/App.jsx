@@ -35,7 +35,7 @@ function App() {
     };
 
     fetchDefaultData();
-  }, []); // Empty dependency array to run only on mount
+  }, []);
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-purple-900 via-blue-900 to-blue-800 text-white">
